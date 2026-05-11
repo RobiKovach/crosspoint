@@ -3522,7 +3522,7 @@
             },
             breakpoints: {
                 375: {
-                    slidesPerView: 1.5,
+                    slidesPerView: 1.3,
                     spaceBetween: 20
                 },
                 640: {
