@@ -475,6 +475,13 @@ body::after {
   row-gap: 12px;
   color: #fff
 }
+.bot-footer__right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  row-gap: 12px;
+  color: #fff
+}
 .bot-footer__offer {
   color: #fff;
   font-size: 14px;
@@ -511,6 +518,8 @@ body::after {
   line-height: normal;
   text-transform: uppercase;
   text-decoration: none;
+  -webkit-transform: translateX(60px);
+  transform: translateX(60px);
   transition: letter-spacing .3s ease,opacity .3s ease
 }
 .bot-footer__create:hover {
@@ -519,6 +528,9 @@ body::after {
 }
 body {
   background: #212b42
+}
+.no-padding {
+  padding: 0!important
 }
 .hero {
   overflow: hidden;
@@ -1577,7 +1589,13 @@ body {
   }
   .footer__container {
     padding-top: 32px;
-    padding-bottom: 29px
+    padding-bottom: 0
+  }
+  .footer__bot {
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-start;
+    row-gap: 15px
   }
   .main-footer__logo {
     width: 101px;
@@ -1596,7 +1614,13 @@ body {
     height: 3px
   }
   .bot-footer__left {
-    row-gap: 15px
+    row-gap: 15px;
+    order: 1
+  }
+  .bot-footer__right {
+    row-gap: 15px;
+    order: 2;
+    align-items: flex-start
   }
   .bot-footer__offer {
     font-size: 12px
@@ -1605,7 +1629,12 @@ body {
     font-size: 12px
   }
   .bot-footer__create {
-    font-size: 12px
+    font-size: 12px;
+    order: 3;
+    text-align: right;
+    width: 100%;
+    -webkit-transform: translateY(-30px);
+    transform: translateY(-30px)
   }
   .hero {
     background: url(../img/hero-background-phobe.png) no-repeat center;

@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20260513124316">
+	<link rel="stylesheet" href="css/style.min.css?_v=20260513131830">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,7 +39,7 @@
 									<a href="" data-goto=".about" class="menu__link">Про нас</a>
 								</li>
 								<li class="menu__item">
-									<a href="" class="menu__link">Розклад подій</a>
+									<a href="" data-goto=".program" class="menu__link">Розклад подій</a>
 								</li>
 								<li class="menu__item">
 									<a href="" data-goto=".comments" class="menu__link">Відгуки</a>
@@ -63,7 +63,7 @@
 							<p class="hero__subtitle">ІВЕНТ платформа</p>
 						</div>
 						<div class="hero__actions">
-							<a href="" data-popup="#popup1" class="hero__look">
+							<a href="" data-goto=".program" class="hero__look">
 								<img class="call-arrow" src="img/icon-arrow.svg" alt="" />
 								<img class="call-arrow-blue" src="img/icon-arrow-blue.svg" alt="" />
 								<span>Переглянути події</span>
@@ -166,14 +166,14 @@
 											пацієнтів.
 										</p>
 										<div data-da=".place-to-adapt, 768" class="top-body-spollers__btns">
-											<a href="" class="top-body-spollers__btn">
+											<a href="" data-popup="#popup3" class="top-body-spollers__btn">
 												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
 													<circle cx="12" cy="12" r="12" fill="white" />
 													<path d="M7.58538 8.23427L15.4908 16.1397L8.69627 16.1581L8.63556 17.0707L17.0478 17.0478L17.0706 8.63561L16.1581 8.69632L16.1396 15.4908L8.23423 7.58542L7.58538 8.23427Z" fill="#A76D55" />
 												</svg>
 												<span>Програма заходу</span>
 											</a>
-											<a href="" class="top-body-spollers__btn2">
+											<a href="" data-popup="#popup4" class="top-body-spollers__btn2">
 												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
 													<circle cx="12" cy="12" r="12" fill="white" />
 													<path d="M7.58538 8.23427L15.4908 16.1397L8.69627 16.1581L8.63556 17.0707L17.0478 17.0478L17.0706 8.63561L16.1581 8.69632L16.1396 15.4908L8.23423 7.58542L7.58538 8.23427Z" fill="#A76D55" />
@@ -316,7 +316,7 @@
 													<path d="M11.2011 23.5935L1.48329 13.8752C1.25954 13.6515 1.08205 13.3859 0.96096 13.0935C0.839868 12.8012 0.777542 12.4879 0.777542 12.1715C0.777542 11.8551 0.839868 11.5418 0.96096 11.2495C1.08205 10.9571 1.25954 10.6915 1.48329 10.4678L11.2016 0.749956" stroke="#212B42" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
 												</svg>
 											</button>
-											<a href="" class="program__about-speeckers">про спікерів</a>
+											<a href="img/speekers.pdf" target="_blank" class="program__about-speeckers">про спікерів</a>
 											<button type="button" class="program-button-next">
 												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
 													<path d="M22.6242 13.5648C22.805 13.5646 22.984 13.5289 23.151 13.4596C23.318 13.3903 23.4697 13.2888 23.5974 13.1609C23.7252 13.0329 23.8265 12.8811 23.8956 12.714C23.9646 12.547 24.0001 12.3679 24 12.1871C23.9999 12.0063 23.9641 11.8273 23.8949 11.6603C23.8256 11.4933 23.724 11.3416 23.5961 11.2139C23.4682 11.0861 23.3164 10.9848 23.1493 10.9158C22.9822 10.8467 22.8032 10.8112 22.6224 10.8113L22.6242 13.5648ZM20.549 12.1889V13.5657H20.5499L20.549 12.1889ZM11.3369 10.8122C10.9717 10.8122 10.6216 10.9573 10.3634 11.2155C10.1052 11.4736 9.96015 11.8238 9.96015 12.1889C9.96015 12.5541 10.1052 12.9043 10.3634 13.1624C10.6216 13.4206 10.9717 13.5657 11.3369 13.5657V10.8122ZM11.3199 13.5657C11.685 13.5657 12.0352 13.4206 12.2934 13.1624C12.5516 12.9043 12.6966 12.5541 12.6966 12.1889C12.6966 11.8238 12.5516 11.4736 12.2934 11.2155C12.0352 10.9573 11.685 10.8122 11.3199 10.8122V13.5657ZM1.37673 10.8122C1.01159 10.8122 0.661419 10.9573 0.403233 11.2155C0.145046 11.4736 0 11.8238 0 12.1889C0 12.5541 0.145046 12.9043 0.403233 13.1624C0.661419 13.4206 1.01159 13.5657 1.37673 13.5657V10.8122ZM22.6224 10.8113H22.5879L22.5893 13.5648H22.6242L22.6224 10.8113ZM22.5879 10.8113H22.1795L22.1818 13.5648H22.5893L22.5879 10.8113ZM22.1795 10.8113H21.772L21.7738 13.5648H22.1818L22.1795 10.8113ZM21.772 10.8113L21.3636 10.8118L21.3659 13.5652L21.7738 13.5648L21.772 10.8113ZM21.3636 10.8118L20.9561 10.8122L20.9579 13.5657L21.3659 13.5652L21.3636 10.8118ZM20.9561 10.8122H20.5481L20.5499 13.5657H20.9579L20.9561 10.8122ZM20.549 10.8122H11.3369V13.5657H20.549V10.8122ZM11.3199 10.8122L1.37673 10.8122V13.5657L11.3199 13.5657V10.8122Z" fill="#212B42" />
@@ -413,7 +413,7 @@
 											</div>
 										</div>
 									</div>
-									<a href="" data-popup="#popup1" class="hero__look">
+									<a href="" data-popup="#popup1" data-popup="#popup1" class="hero__look">
 										<img class="call-arrow" src="img/icon-arrow.svg" alt="" />
 										<img class="call-arrow-blue" src="img/icon-arrow-blue.svg" alt="" />
 										<span>зареєструватись</span>
@@ -421,7 +421,7 @@
 								</div>
 							</div>
 						</details>
-						<details data-spoller-scroll class="spollers__item">
+						<details data-spoller-scroll class="spollers__item" open>
 							<summary class="spollers__title">
 								<p>
 									<span class="brown">Медицина на перетині спеціальностей</span>
@@ -439,15 +439,15 @@
 											підходи до діагностики й лікування коморбідних
 											пацієнтів.
 										</p>
-										<div data-da=".place-to-adapt2, 768" class="top-body-spollers__btns">
-											<a href="" class="top-body-spollers__btn">
+										<div data-da=".place-to-adapt, 768" class="top-body-spollers__btns">
+											<a href="" data-popup="#popup3" class="top-body-spollers__btn">
 												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
 													<circle cx="12" cy="12" r="12" fill="white" />
 													<path d="M7.58538 8.23427L15.4908 16.1397L8.69627 16.1581L8.63556 17.0707L17.0478 17.0478L17.0706 8.63561L16.1581 8.69632L16.1396 15.4908L8.23423 7.58542L7.58538 8.23427Z" fill="#A76D55" />
 												</svg>
 												<span>Програма заходу</span>
 											</a>
-											<a href="" class="top-body-spollers__btn2">
+											<a href="" data-popup="#popup4" class="top-body-spollers__btn2">
 												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
 													<circle cx="12" cy="12" r="12" fill="white" />
 													<path d="M7.58538 8.23427L15.4908 16.1397L8.69627 16.1581L8.63556 17.0707L17.0478 17.0478L17.0706 8.63561L16.1581 8.69632L16.1396 15.4908L8.23423 7.58542L7.58538 8.23427Z" fill="#A76D55" />
@@ -456,7 +456,7 @@
 											</a>
 										</div>
 									</div>
-									<div class="top-body-spollers__actions place-to-adapt2">
+									<div class="top-body-spollers__actions place-to-adapt">
 										<div class="top-body-spollers__item">
 											<img src="img/icon-callendar.svg" alt="icon" />
 											<span>19 червня</span>
@@ -590,7 +590,7 @@
 													<path d="M11.2011 23.5935L1.48329 13.8752C1.25954 13.6515 1.08205 13.3859 0.96096 13.0935C0.839868 12.8012 0.777542 12.4879 0.777542 12.1715C0.777542 11.8551 0.839868 11.5418 0.96096 11.2495C1.08205 10.9571 1.25954 10.6915 1.48329 10.4678L11.2016 0.749956" stroke="#212B42" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
 												</svg>
 											</button>
-											<a href="" class="program__about-speeckers">про спікерів</a>
+											<a href="img/speekers.pdf" target="_blank" class="program__about-speeckers">про спікерів</a>
 											<button type="button" class="program-button-next">
 												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
 													<path d="M22.6242 13.5648C22.805 13.5646 22.984 13.5289 23.151 13.4596C23.318 13.3903 23.4697 13.2888 23.5974 13.1609C23.7252 13.0329 23.8265 12.8811 23.8956 12.714C23.9646 12.547 24.0001 12.3679 24 12.1871C23.9999 12.0063 23.9641 11.8273 23.8949 11.6603C23.8256 11.4933 23.724 11.3416 23.5961 11.2139C23.4682 11.0861 23.3164 10.9848 23.1493 10.9158C22.9822 10.8467 22.8032 10.8112 22.6224 10.8113L22.6242 13.5648ZM20.549 12.1889V13.5657H20.5499L20.549 12.1889ZM11.3369 10.8122C10.9717 10.8122 10.6216 10.9573 10.3634 11.2155C10.1052 11.4736 9.96015 11.8238 9.96015 12.1889C9.96015 12.5541 10.1052 12.9043 10.3634 13.1624C10.6216 13.4206 10.9717 13.5657 11.3369 13.5657V10.8122ZM11.3199 13.5657C11.685 13.5657 12.0352 13.4206 12.2934 13.1624C12.5516 12.9043 12.6966 12.5541 12.6966 12.1889C12.6966 11.8238 12.5516 11.4736 12.2934 11.2155C12.0352 10.9573 11.685 10.8122 11.3199 10.8122V13.5657ZM1.37673 10.8122C1.01159 10.8122 0.661419 10.9573 0.403233 11.2155C0.145046 11.4736 0 11.8238 0 12.1889C0 12.5541 0.145046 12.9043 0.403233 13.1624C0.661419 13.4206 1.01159 13.5657 1.37673 13.5657V10.8122ZM22.6224 10.8113H22.5879L22.5893 13.5648H22.6242L22.6224 10.8113ZM22.5879 10.8113H22.1795L22.1818 13.5648H22.5893L22.5879 10.8113ZM22.1795 10.8113H21.772L21.7738 13.5648H22.1818L22.1795 10.8113ZM21.772 10.8113L21.3636 10.8118L21.3659 13.5652L21.7738 13.5648L21.772 10.8113ZM21.3636 10.8118L20.9561 10.8122L20.9579 13.5657L21.3659 13.5652L21.3636 10.8118ZM20.9561 10.8122H20.5481L20.5499 13.5657H20.9579L20.9561 10.8122ZM20.549 10.8122H11.3369V13.5657H20.549V10.8122ZM11.3199 10.8122L1.37673 10.8122V13.5657L11.3199 13.5657V10.8122Z" fill="#212B42" />
@@ -687,7 +687,7 @@
 											</div>
 										</div>
 									</div>
-									<a href="" data-popup="#popup1" class="hero__look">
+									<a href="" data-popup="#popup1" data-popup="#popup1" class="hero__look">
 										<img class="call-arrow" src="img/icon-arrow.svg" alt="" />
 										<img class="call-arrow-blue" src="img/icon-arrow-blue.svg" alt="" />
 										<span>зареєструватись</span>
@@ -882,10 +882,14 @@
 				</div>
 				<div class="footer__bot bot-footer">
 					<div class="bot-footer__left">
-						<a href="#" class="bot-footer__offer">Публічна оферта</a>
-						<a href="#" class="bot-footer__privat-policy">Політика конфіденційності</a>
+						<a href="img/refund.docx" target="_blank" class="bot-footer__offer">Правила повернення грошових коштів</a>
+						<a href="img/privace.docx" target="_blank" class="bot-footer__privat-policy">Політика конфіденційності</a>
 					</div>
-					<a href="https://mriya-digital.com/" class="bot-footer__create">Made by MRiЯ Agency</a>
+					<a href="https://mriya-digital.com/" target="_blank" class="bot-footer__create">Made by MRiЯ Agency</a>
+					<div class="bot-footer__right">
+						<a data-da=".bot-footer__left, 768, 0" href="img/terms.docx" target="_blank" class="bot-footer__offer">Правила і умови використання освітньої платформи</a>
+						<a href="img/oferta.docx" target="_blank" class="bot-footer__privat-policy">договір оферти</a>
+					</div>
 				</div>
 			</div>
 		</footer>
@@ -951,7 +955,39 @@
 			</div>
 		</div>
 	</div>
-	<script src="js/app.min.js?_v=20260513124316"></script>
+
+	<div id="popup3" aria-hidden="true" class="popup">
+		<div class="popup__wrapper">
+			<div class="popup__content no-padding">
+				<button data-close type="button" class="popup__close">
+					<svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path opacity="0.850056" d="M1.73333 1.48883L21.5469 21.0288" stroke="#979797" stroke-linecap="square" />
+						<path opacity="0.850056" d="M21.2667 1.48883L1.45309 21.0288" stroke="#979797" stroke-linecap="square" />
+					</svg>
+				</button>
+				<div class="popup__text text-popup">
+					<img src="img/program.png" alt="Image" />
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="popup4" aria-hidden="true" class="popup">
+		<div class="popup__wrapper">
+			<div class="popup__content no-padding">
+				<button data-close type="button" class="popup__close">
+					<svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path opacity="0.850056" d="M1.73333 1.48883L21.5469 21.0288" stroke="#979797" stroke-linecap="square" />
+						<path opacity="0.850056" d="M21.2667 1.48883L1.45309 21.0288" stroke="#979797" stroke-linecap="square" />
+					</svg>
+				</button>
+				<div class="popup__text text-popup">
+					<img src="img/bpr.png" alt="Image" />
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="js/app.min.js?_v=20260513131830"></script>
 </body>
 
 </html>
