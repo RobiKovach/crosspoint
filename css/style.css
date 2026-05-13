@@ -2026,7 +2026,8 @@ body {
     font-size: 20px;
     line-height: 22px;
     letter-spacing: .4px;
-    padding-bottom: 0
+    padding-bottom: 0;
+    padding-bottom: 20px
   }
   .bottom-body-spollers__items {
     flex-direction: column;
@@ -2034,7 +2035,11 @@ body {
     width: 100%
   }
   .bottom-body-spollers__item {
-    max-width: 100%
+    max-width: 100%;
+    order: 1
+  }
+  .bottom-body-spollers__item.active-packet {
+    order: 0
   }
   .item-bottom-spollers .item-bottom-pollers__label {
     font-size: 14px
