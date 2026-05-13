@@ -1105,6 +1105,18 @@ body {
   -webkit-transform: translateY(-3px);
   transform: translateY(-3px)
 }
+.spollers__background {
+  position: absolute;
+  top: 48px;
+  width: 1217px;
+  height: 1214px;
+  opacity: .5;
+  left: 32px;
+  z-index: 1
+}
+.spollers__item {
+  position: relative
+}
 .spollers__item[open] .spollers__title {
   border-bottom: none;
   border-radius: 20px 20px 0 0;
@@ -1121,7 +1133,9 @@ body {
   box-shadow: 0 0 8px 0 rgba(0,0,0,.15);
   display: flex;
   align-items: center;
-  justify-content: space-between
+  justify-content: space-between;
+  position: relative;
+  z-index: 2
 }
 .spollers__title p {
   font-size: 32px;
@@ -1161,14 +1175,18 @@ body {
   border-top: 1px solid rgba(0,0,0,.3019607843);
   border-bottom: 1px solid rgba(0,0,0,.3019607843);
   padding-bottom: 30px;
-  padding-top: 35px
+  padding-top: 35px;
+  position: relative;
+  z-index: 2
 }
 .body-spollers__mid {
   padding-top: 36px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  row-gap: 37px
+  row-gap: 37px;
+  position: relative;
+  z-index: 2
 }
 .body-spollers__bottom {
   display: flex;
@@ -1176,7 +1194,9 @@ body {
   align-items: center;
   row-gap: 19px;
   padding-bottom: 21px;
-  padding-top: 45px
+  padding-top: 45px;
+  position: relative;
+  z-index: 2
 }
 .top-body-spollers__text {
   display: flex;
@@ -1904,6 +1924,10 @@ body {
     font-weight: 700;
     padding: 8px 22px 12px;
     margin-top: 30px
+  }
+  .spollers__background {
+    top: 188px;
+    left: -90%
   }
   .spollers__title {
     border-radius: 16px;
