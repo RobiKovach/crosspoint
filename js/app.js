@@ -3509,17 +3509,14 @@
         });
     }
     function initSliders() {
-        if (document.querySelector(".swiper")) new Swiper(".comments__slider", {
+        if (document.querySelector(".comments__slider")) new Swiper(".comments__slider", {
             modules: [ Navigation ],
             observer: true,
             observeParents: true,
             slidesPerView: 3.6,
             spaceBetween: 20,
             speed: 800,
-            navigation: {
-                prevEl: ".swiper-button-prev",
-                nextEl: ".swiper-button-next"
-            },
+            autoHeight: true,
             breakpoints: {
                 375: {
                     slidesPerView: 1.3,
@@ -3545,8 +3542,58 @@
             on: {}
         });
     }
-    window.addEventListener("load", function(e) {
+    function initProgramSliders() {
+        document.querySelectorAll("[data-spoller-scroll]").forEach(details => {
+            const slider = details.querySelector(".program__slider");
+            if (!slider) return;
+            const summary = details.querySelector("summary");
+            const spollerSpeed = details.closest("[data-spollers]")?.dataset.spollersSpeed ? parseInt(details.closest("[data-spollers]").dataset.spollersSpeed) : 500;
+            const initSwiper = () => {
+                if (slider.dataset.swiperInitialized) return;
+                slider.dataset.swiperInitialized = "true";
+                const swiper = new Swiper(slider, {
+                    modules: [ Navigation ],
+                    spaceBetween: 20,
+                    slidesPerView: 1.6,
+                    speed: 800,
+                    navigation: {
+                        prevEl: slider.querySelector(".program-button-prev"),
+                        nextEl: slider.querySelector(".program-button-next")
+                    },
+                    breakpoints: {
+                        640: {
+                            slidesPerView: 1.5,
+                            spaceBetween: 10
+                        },
+                        768: {
+                            slidesPerView: 2,
+                            spaceBetween: 20
+                        },
+                        992: {
+                            slidesPerView: 3,
+                            spaceBetween: 20
+                        },
+                        1268: {
+                            slidesPerView: 3.6,
+                            spaceBetween: 30
+                        }
+                    }
+                });
+                setTimeout(() => swiper.update(), 50);
+            };
+            if (details.open) {
+                initSwiper();
+                return;
+            }
+            summary.addEventListener("click", () => {
+                const isOpening = !summary.classList.contains("_spoller-active");
+                if (isOpening) setTimeout(initSwiper, spollerSpeed + 50);
+            });
+        });
+    }
+    window.addEventListener("load", function() {
         initSliders();
+        initProgramSliders();
     });
     let addWindowScrollEvent = false;
     function pageNavigation() {
@@ -3602,6 +3649,106 @@
             });
         }
     }, 0);
+    class DynamicAdapt {
+        constructor(type) {
+            this.type = type;
+        }
+        init() {
+            this.оbjects = [];
+            this.daClassname = "_dynamic_adapt_";
+            this.nodes = [ ...document.querySelectorAll("[data-da]") ];
+            this.nodes.forEach(node => {
+                const data = node.dataset.da.trim();
+                const dataArray = data.split(",");
+                const оbject = {};
+                оbject.element = node;
+                оbject.parent = node.parentNode;
+                оbject.destination = document.querySelector(`${dataArray[0].trim()}`);
+                оbject.breakpoint = dataArray[1] ? dataArray[1].trim() : "767.98";
+                оbject.place = dataArray[2] ? dataArray[2].trim() : "last";
+                оbject.index = this.indexInParent(оbject.parent, оbject.element);
+                this.оbjects.push(оbject);
+            });
+            this.arraySort(this.оbjects);
+            this.mediaQueries = this.оbjects.map(({breakpoint}) => `(${this.type}-width: ${breakpoint / 16}em),${breakpoint}`).filter((item, index, self) => self.indexOf(item) === index);
+            this.mediaQueries.forEach(media => {
+                const mediaSplit = media.split(",");
+                const matchMedia = window.matchMedia(mediaSplit[0]);
+                const mediaBreakpoint = mediaSplit[1];
+                const оbjectsFilter = this.оbjects.filter(({breakpoint}) => breakpoint === mediaBreakpoint);
+                matchMedia.addEventListener("change", () => {
+                    this.mediaHandler(matchMedia, оbjectsFilter);
+                });
+                this.mediaHandler(matchMedia, оbjectsFilter);
+            });
+        }
+        mediaHandler(matchMedia, оbjects) {
+            if (matchMedia.matches) оbjects.forEach(оbject => {
+                this.moveTo(оbject.place, оbject.element, оbject.destination);
+            }); else оbjects.forEach(({parent, element, index}) => {
+                if (element.classList.contains(this.daClassname)) this.moveBack(parent, element, index);
+            });
+        }
+        moveTo(place, element, destination) {
+            element.classList.add(this.daClassname);
+            if (place === "last" || place >= destination.children.length) {
+                destination.append(element);
+                return;
+            }
+            if (place === "first") {
+                destination.prepend(element);
+                return;
+            }
+            destination.children[place].before(element);
+        }
+        moveBack(parent, element, index) {
+            element.classList.remove(this.daClassname);
+            if (parent.children[index] !== void 0) parent.children[index].before(element); else parent.append(element);
+        }
+        indexInParent(parent, element) {
+            return [ ...parent.children ].indexOf(element);
+        }
+        arraySort(arr) {
+            if (this.type === "min") arr.sort((a, b) => {
+                if (a.breakpoint === b.breakpoint) {
+                    if (a.place === b.place) return 0;
+                    if (a.place === "first" || b.place === "last") return -1;
+                    if (a.place === "last" || b.place === "first") return 1;
+                    return 0;
+                }
+                return a.breakpoint - b.breakpoint;
+            }); else {
+                arr.sort((a, b) => {
+                    if (a.breakpoint === b.breakpoint) {
+                        if (a.place === b.place) return 0;
+                        if (a.place === "first" || b.place === "last") return 1;
+                        if (a.place === "last" || b.place === "first") return -1;
+                        return 0;
+                    }
+                    return b.breakpoint - a.breakpoint;
+                });
+                return;
+            }
+        }
+    }
+    const da = new DynamicAdapt("max");
+    da.init();
+    const plusSVG = `<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 20 20" fill="none">\n  <path opacity="0.5" d="M0 10.7692L0 9.23077H9.23077V0L10.7692 0V9.23077L20 9.23077V10.7692L10.7692 10.7692L10.7692 20H9.23077L9.23077 10.7692H0Z" fill="black"/>\n</svg>`;
+    const minusSVG = `<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 20 20" fill="none">\n  <path opacity="0.5" d="M0 10.7692V9.23077H20V10.7692H0Z" fill="black"/>\n</svg>`;
+    document.querySelectorAll("[data-spollers] details").forEach(details => {
+        const summary = details.querySelector("summary");
+        const moreSpan = summary.querySelector(".more");
+        if (!moreSpan) return;
+        const isMobile = () => window.innerWidth < 768;
+        const getContent = isOpen => {
+            if (isMobile()) return isOpen ? minusSVG : plusSVG;
+            return isOpen ? "Згорнути" : "Детальніше";
+        };
+        moreSpan.innerHTML = getContent(details.open);
+        summary.addEventListener("click", () => {
+            moreSpan.innerHTML = getContent(!details.open);
+        });
+    });
     window["FLS"] = true;
     menuInit();
     pageNavigation();
